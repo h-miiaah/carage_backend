@@ -1,3 +1,3 @@
 class Brand < ApplicationRecord
-    han_many :cars
+    has_many :cars
 end
