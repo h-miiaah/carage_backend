@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_09_235545) do
+ActiveRecord::Schema.define(version: 2020_08_10_003254) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
@@ -24,10 +24,12 @@ ActiveRecord::Schema.define(version: 2020_08_09_235545) do
     t.string "year"
     t.string "color"
     t.string "mileage"
-    t.integer "brand_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_url"
+    t.integer "brand_id"
+    t.index ["brand_id"], name: "index_cars_on_brand_id"
   end
 
+  add_foreign_key "cars", "brands"
 end
