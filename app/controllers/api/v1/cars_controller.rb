@@ -13,7 +13,7 @@ class Api::V1::CarsController < ApplicationController
     def create
         car = Car.new(car_params)
         if car.save
-            render json: car, status: accepted
+            render json: car, status: :accepted
         else
             render json: {errors: car.errors.full_messages}, status: :unprocessible_entity
         end
